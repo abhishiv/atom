@@ -1,0 +1,42 @@
+{
+  "name": "@gratico/atom",
+  "version": "0.0.3",
+  "author": "Abhishiv Saxena<abhishiv@gmail.com>",
+  "description": "Simple atom structure inspired by om and based on immer",
+  "license": "UNLICENSED",
+  "keywords": [
+    "gratico-engineering"
+  ],
+  "url": "https://www.grati.co/@gratico/atom",
+  "accessConfig": {
+    "public": true
+  },
+  "files": [
+    "docs",
+    "dist"
+  ],
+  "module": "./dist/esm/index.mjs",
+  "main": "./dist/cjs/index",
+  "scripts": {
+    "test": "make test",
+    "build": "make build"
+  },
+  "dependencies": {
+    "immer": "^8.0.0",
+    "lodash.get": "^4.4.2"
+  },
+  "peerDependencies": {
+    "tslib": "^2.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "@babel/preset-typescript": "^7.10.1",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "typescript": "^3.9.5",
+    "typedoc": "^0.19.2",
+    "jest": "^26.0.1"
+  }
+}
