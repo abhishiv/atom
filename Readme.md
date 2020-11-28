@@ -1,1 +1,82 @@
-# atom
+
+# @gratico/atom
+
+@gratico/atom
+=====
+
+TODO: clean up Watch interface
+Simple atom structure inspired by clojure's om
+
+Install and use
+---------------
+
+To use run `npm install -g @gratico/atom`
+
+
+
+```
+import { applyPatch, Operation, BaseOperation } from "fast-json-patch";
+
+export interface IPatch {
+  path: string[];
+  value: any;
+  op: any;
+}
+export type ICommit = IPatch[];
+
+export interface IAtom<T = any> {
+  state: T;
+  handlers: Map<string, Function>;
+}
+
+const get = (state: any, path: string[]) =>
+  path.reduce((res, prop) => res[prop], state);
+
+export function deref(store: IAtom, path: string[]) {
+  return get(store.state, path);
+}
+
+export function defAtom<T = any>(state: T) {
+  const atom = new Atom(state);
+  return atom;
+}
+export function defCursorUnsafe(store: IAtom, path: string[]) {
+  return path;
+}
+export function defUpdatableCursor(store: IAtom, path: string[]) {
+  return {
+    addWatch: function (
+      wid: string,
+      handler: (id: string, commit: ICommit) => void
+    ) {
+      store.handlers.set(wid, handler);
+    },
+    removeWatch: (wid: string) => {
+      store.handlers.delete(wid);
+    },
+  };
+}
+
+export function commitPatch(store: IAtom, patch: ICommit) {
+  applyPatch(
+    store.state,
+    patch.map((el) => ({ ...el, path: "/" + el.path.join("/") }))
+  );
+
+  store.handlers.forEach((handler) => {
+    handler(patch);
+  });
+}
+
+export class Atom<T> implements IAtom<T> {
+  state: T;
+  handlers: Map<string, Function>;
+  constructor(state: T) {
+    this.state = state;
+    this.handlers = new Map();
+  }
+}
+
+```
+
+

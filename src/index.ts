@@ -1,11 +1,22 @@
-import { applyPatches, Patch, enablePatches } from "immer";
+/* eslint  no-var: "error" */
 
-import lget from "lodash.get";
+// @gratico/atom
+// =====
+// TODO: clean up Watch interface
+// Simple atom structure inspired by clojure's om
 
-enablePatches();
-// dealing with tree shaking
-console.log(enablePatches);
-export type IPatch = Patch;
+// Install and use
+// ---------------
+// To use run `npm install -g @gratico/atom`
+//
+
+import { applyPatch, Operation, BaseOperation } from "fast-json-patch";
+
+export interface IPatch {
+  path: string[];
+  value: any;
+  op: any;
+}
 export type ICommit = IPatch[];
 
 export interface IAtom<T = any> {
@@ -14,7 +25,7 @@ export interface IAtom<T = any> {
 }
 
 const get = (state: any, path: string[]) =>
-  path.length === 0 ? state : lget(state, path);
+  path.reduce((res, prop) => res[prop], state);
 
 export function deref(store: IAtom, path: string[]) {
   return get(store.state, path);
@@ -27,7 +38,6 @@ export function defAtom<T = any>(state: T) {
 export function defCursorUnsafe(store: IAtom, path: string[]) {
   return path;
 }
-
 export function defUpdatableCursor(store: IAtom, path: string[]) {
   return {
     addWatch: function (
@@ -43,12 +53,14 @@ export function defUpdatableCursor(store: IAtom, path: string[]) {
 }
 
 export function commitPatch(store: IAtom, patch: ICommit) {
-  const newState = applyPatches(store.state, patch);
+  applyPatch(
+    store.state,
+    patch.map((el) => ({ ...el, path: "/" + el.path.join("/") }))
+  );
 
   store.handlers.forEach((handler) => {
     handler(patch);
   });
-  store.state = newState;
 }
 
 export class Atom<T> implements IAtom<T> {
