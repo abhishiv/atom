@@ -45,7 +45,7 @@ packages/server/src/index.js.map
 .cache
 .swagger.v1.json
 serverTypes
-docs/
+docs
 wallaby.config.js
 newrelic_agent.log
 /packages/*/**/@types

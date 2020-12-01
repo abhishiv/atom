@@ -1,6 +1,6 @@
 {
   "name": "@gratico/atom",
-  "version": "0.0.3",
+  "version": "0.1.1",
   "author": "Abhishiv Saxena<abhishiv@gmail.com>",
   "description": "Simple atom structure inspired by clojure's om",
   "license": "UNLICENSED",
@@ -16,15 +16,13 @@
     "dist"
   ],
   "module": "./dist/esm/index.mjs",
-  "main": "./dist/cjs/index",
+  "main": "./dist/cjs/index.js",
   "scripts": {
     "test": "make test",
     "build": "make build"
   },
   "dependencies": {},
-  "peerDependencies": {
-    "tslib": "^2.0.3"
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.10.1",
     "@babel/core": "^7.10.2",

@@ -42,10 +42,7 @@ export function defCursor(store: IAtom, path: string[]) {
 }
 export function defWatchableCursor(store: IAtom, path: string[]) {
   return {
-    addWatch: function (
-      wid: string,
-      handler: (id: string, commit: ICommit) => void
-    ) {
+    addWatch: function (wid: string, handler: (commit: ICommit) => void) {
       store.handlers.set(wid, handler);
       store.watchPaths.set(wid, path);
     },
