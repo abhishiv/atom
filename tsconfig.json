@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
-    "target": "es2020",
-    "module": "es2020",
+    "target": "es5",
+    "module": "commonjs",
     "strict": true,
     "declaration": true,
     "esModuleInterop": true,
@@ -21,7 +21,6 @@
     ],
     "baseUrl": "src",
     "skipLibCheck": true,
-    "paths": {},
     "typeRoots": ["./node_modules/@types", "./src/@types"]
   },
   "exclude": ["dist", "docs"],

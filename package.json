@@ -2,26 +2,35 @@
   "name": "@gratico/atom",
   "version": "0.1.2",
   "author": "Abhishiv Saxena<abhishiv@gmail.com>",
-  "description": "Simple atom structure inspired by clojure's om",
+  "description": "Simple atom structure inspired by clojure's atom",
   "license": "UNLICENSED",
   "keywords": [
-    "gratico-engineering"
+    "gratico-engineering",
+    "atom",
+    "immutable",
+    "structure",
+    "properties"
   ],
   "url": "https://www.grati.co/@gratico/atom",
   "accessConfig": {
     "public": true
   },
   "files": [
-    "docs",
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/abhishiv/atom.git"
+  },
   "module": "./dist/esm/index.mjs",
   "main": "./dist/cjs/index.js",
   "scripts": {
     "test": "make test",
     "build": "make build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "fast-json-patch": "^3.0.0-1"
+  },
   "peerDependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.10.1",
@@ -33,6 +42,6 @@
     "docco-next": "^0.9.3",
     "jest": "^26.0.1",
     "typedoc": "^0.19.2",
-    "typescript": "^3.9.5"
+    "typescript": "^4.1.2"
   }
 }
