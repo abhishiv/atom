@@ -2,14 +2,15 @@
   "name": "@gratico/atom",
   "version": "0.1.2",
   "author": "Abhishiv Saxena<abhishiv@gmail.com>",
-  "description": "Simple atom structure inspired by clojure's atom",
+  "description": "Simple atom structure inspired by om. Mutations are JSON RFC 6902 patches.",
   "license": "UNLICENSED",
   "keywords": [
     "gratico-engineering",
     "atom",
     "immutable",
     "structure",
-    "properties"
+    "properties",
+    "json-rfc-6902"
   ],
   "url": "https://www.grati.co/@gratico/atom",
   "accessConfig": {
