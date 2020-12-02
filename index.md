@@ -4,8 +4,7 @@
 @gratico/atom
 =====
 
-TODO: clean up Watch interface
-Simple atom structure inspired by clojure's om
+Simple atom structure inspired by om. Mutations are JSON RFC 6902 patches.
 
 Install and use
 ---------------
