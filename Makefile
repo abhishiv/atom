@@ -32,11 +32,6 @@ doc:
 	cp -r src docs
 	ls -l docs/
 	env SRC_FILE=./docs/index.ts make doc-file
-	env SRC_FILE=./docs/relational.ts make doc-file
-	env SRC_FILE=./docs/utils.ts make doc-file
-	env SRC_FILE=./docs/schema.ts make doc-file
-	env SRC_FILE=./docs/types.ts make doc-file
-	env SRC_FILE=./docs/watch.ts make doc-file
 	rm -rf ./Readme.md
 	cp ./docs/index.md ./Readme.md
 	./node_modules/.bin/typedoc --theme ./node_modules/@gratico/docs-site/src/themes/typedoc/default  --out ./docs/typedoc   --includeDeclarations --exclude "**/node_modules/**/*" --inputFiles ./src
