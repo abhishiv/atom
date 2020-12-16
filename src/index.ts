@@ -7,7 +7,9 @@
 // Install and use
 // ---------------
 // To use run `npm install -g @gratico/atom`
+//
 //     import {defAtom, commitPatch, defCursor, deref, defWatchableCursor} from "@gratico/atom"
+//
 //     const atom = defAtom({user: {profile: {name: "John"}}})
 //
 //     React.useLayoutEffect(() => {
@@ -17,5 +19,6 @@
 //         cursor.removeWatch(id);
 //       };
 //     }, []);
+//
 
 export * from "./atom";
