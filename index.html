@@ -60,10 +60,12 @@
               <div class="sswrap ">
                 <a class="ss" href="#section-3">&#x00a7;</a>
               </div>
-              <p>To use run <code>npm install -g @gratico/atom</code>
-    import {defAtom, commitPatch, defCursor, deref, defWatchableCursor} from “@gratico/atom”
-    const atom = defAtom({user: {profile: {name: “John”}}})</p>
-<pre><code>React.useLayoutEffect(<span class="hljs-function">() =&gt;</span> {
+              <p>To use run <code>npm install -g @gratico/atom</code></p>
+<pre><code><span class="hljs-keyword">import</span> {defAtom, commitPatch, defCursor, deref, defWatchableCursor} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@gratico/atom&quot;</span>
+
+<span class="hljs-keyword">const</span> atom = defAtom({<span class="hljs-attr">user</span>: {<span class="hljs-attr">profile</span>: {<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;John&quot;</span>}}})
+
+React.useLayoutEffect(<span class="hljs-function">() =&gt;</span> {
   <span class="hljs-keyword">const</span> cursor = defWatchableCursor(atom, [<span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;profile&quot;</span>]);
   cursor.addWatch(id, handler);
   <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> {

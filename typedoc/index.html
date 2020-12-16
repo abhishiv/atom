@@ -371,10 +371,12 @@ footer {
 				<a href="#install-and-use" id="install-and-use" style="color: inherit; text-decoration: none;">
 					<h2>Install and use</h2>
 				</a>
-				<p>To use run <code>npm install -g @gratico/atom</code>
-					import {defAtom, commitPatch, defCursor, deref, defWatchableCursor} from &quot;@gratico/atom&quot;
-				const atom = defAtom({user: {profile: {name: &quot;John&quot;}}})</p>
-				<pre><code><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">React</span>.</span></span>use<span class="hljs-constructor">LayoutEffect(()</span> =&gt; {
+				<p>To use run <code>npm install -g @gratico/atom</code></p>
+				<pre><code>import {defAtom, commitPatch, defCursor, deref, defWatchableCursor} from <span class="hljs-string">&quot;@gratico/atom&quot;</span>
+
+const atom = def<span class="hljs-constructor">Atom({<span class="hljs-params">user</span>: {<span class="hljs-params">profile</span>: {<span class="hljs-params">name</span>: <span class="hljs-string">&quot;John&quot;</span>}}})</span>
+
+<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">React</span>.</span></span>use<span class="hljs-constructor">LayoutEffect(()</span> =&gt; {
   const cursor = def<span class="hljs-constructor">WatchableCursor(<span class="hljs-params">atom</span>, [<span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;profile&quot;</span>])</span>;
   cursor.add<span class="hljs-constructor">Watch(<span class="hljs-params">id</span>, <span class="hljs-params">handler</span>)</span>;
   return<span class="hljs-function"> <span class="hljs-params">()</span> =&gt;</span> {
