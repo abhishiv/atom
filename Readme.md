@@ -4,7 +4,7 @@
 @gratico/atom
 =====
 
-Simple atom structure inspired by om. Mutations are JSON RFC 6902 patches.
+Simple atom structure inspired by clojure's atom. Mutations are JSON RFC 6902 patches.
 
 Install and use
 ---------------
